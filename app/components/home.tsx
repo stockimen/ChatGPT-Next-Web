@@ -225,9 +225,9 @@ export function Home() {
     useAccessStore.getState().fetch();
 
     // 检查脚本是否已经存在
-    if (!document.querySelector('script[src="http://localhost:3000/script.js"]')) {
+    if (!document.querySelector('script[src="http://umami.739527.xyz/script.js"]')) {
       const script = document.createElement('script');
-      script.src = "http://localhost:3000/script.js";
+      script.src = "http://umami.739527.xyz/script.js";
       script.defer = true;
       script.dataset.websiteId = "9330f7b9-6567-4759-8d82-ca89b6fbb8c5";
       document.body.appendChild(script);
