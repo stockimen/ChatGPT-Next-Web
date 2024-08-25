@@ -220,19 +220,18 @@ export function Home() {
   useLoadData();
   useHtmlLang();
 
-  // 检查脚本是否已经存在
-  if (!document.querySelector('script[src="http://localhost:3000/script.js"]')) {
+  useEffect(() => {
+    console.log("[Config] got config from build time", getClientConfig());
+    useAccessStore.getState().fetch();
+
+    // 检查脚本是否已经存在
+    if (!document.querySelector('script[src="http://localhost:3000/script.js"]')) {
       const script = document.createElement('script');
       script.src = "http://localhost:3000/script.js";
       script.defer = true;
       script.dataset.websiteId = "9330f7b9-6567-4759-8d82-ca89b6fbb8c5";
       document.body.appendChild(script);
     }
-  }, []);
-
-  useEffect(() => {
-    console.log("[Config] got config from build time", getClientConfig());
-    useAccessStore.getState().fetch();
   }, []);
 
   if (!useHasHydrated()) {
